@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/customizer.css">
+    <link rel="stylesheet" href="css/about.css">
+    <title>StyRa</title>
+</head>
+<body>
+    <header>
+        <h1>StyRa</h1>
+        <nav>
+            <ol>
+                <li><a>Customize</a></li>
+                <li><a>3D Avatar</a></li>
+                <li><a>About</a></li>
+                <li><a>Contact</a></li>
+            </ol>
+        </nav>
+    </header>
+    <div class="div1">
+        <h2>StyRa</h2>
+        <p>Make your own fit -design your style,your color,your era</p>
+        <a class="btn">Start Designing</a>
+    </div>
+    <section class="gallery"> 
+        <h2>Our Collection</h2> 
+        <div class="gallery-grid"> 
+            <div class="item" data-name="T-Shirt" data-img="images/tshirt1.jpeg"> 
+                <img src="images/tshirt1.jpeg" alt="T-Shirt 1"> 
+                <p>T-Shirt</p> 
+            </div> 
+            <div class="item" data-name="Dress" data-img="images/dress1.jpeg">
+                 <img src="images/dress1.jpeg" alt="dress 1">
+                <p>Dress</p> 
+            </div> 
+            <div class="item" data-name="Cap" data-img="images/cap1.jpeg"> 
+                <img src="images/cap1.jpeg" alt="Cap"> 
+                <p>Cap</p> 
+            </div> 
+            <div class="item" data-name="Garara" data-img="images/taraditional.jpeg"> 
+                <img src="images/taraditional.jpeg" alt="traditional"> 
+                <p>Garara</p> 
+            </div> 
+        </div> 
+    </section>
+  <section class="customizer" id="customizer">
+    <h2 id="customizer-title">Customize</h2>
+    <div class="preview-wrap">
+      <img id="preview" src="https://i.imgur.com/4AiXzf8.jpeg" alt="Preview">
+    </div>
+    <div class="options">
+      <div class="option-group">
+        <label for="patternSelect">Pattern</label>
+        <select id="patternSelect">
+          <option value="plain">Plain</option>
+          <option value="stripes">Stripes</option>
+          <option value="checks">Checks</option>
+          <option value="printed">Printed</option>
+        </select>
+      </div>
+      <div class="option-group">
+        <label>Color</label>
+        <div class="color-grid" id="colorGrid"></div>
+      </div>
+      <div class="option-group">
+        <label for="sizeSelect">Size</label>
+        <select id="sizeSelect">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+        </select>
+        <div id="sizeHint">Selected: M</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="saveConfig">Save Design</button>
+    </div>
+  </section>
+        <section class="about" id="about">
+        <h2>About Us – StyRa</h2>
+        <p>
+        <strong>StyleRa: Make Your Own Fit</strong> is a next-generation clothing platform where fashion meets personalization.
+        We empower individuals to design their own outfits based on:
+        </p>
+
+        <ul>
+        <li>✨ Skin tone & personal style – so every outfit feels authentic.</li>
+        <li>✨ <strong>3D Virtual Try-On</strong> – visualize clothes on an interactive 3D model before purchase.</li>
+        <li>✨ <strong>Wide Collection</strong> – shirts, t-shirts, caps, and traditional wear for both men and women.</li>
+        <li>✨ <strong>Customization Options</strong> – choose colors, fabrics, and patterns in real time.</li>
+        </ul>
+
+        <h3>Our Vision</h3>
+        <p>To redefine fashion by giving customers the freedom to create their own unique fit, blending technology with tradition.</p>
+
+        <h3>Our Mission</h3>
+        <p>To make fashion more personalized, inclusive, and immersive, while ensuring high-quality designs accessible to everyone.</p>
+        </section>
+        <section class="contact" id="contact">
+        <h2>📩 Contact Us</h2>
+        <p>We’d love to hear from you! Reach out to us via:</p>
+        <ul>
+        <li>Email: <a>styra@example.com</a></li>
+        <li>Instagram: <a>@styra</a></li>
+        <li>Twitter: <a>@styra</a></li>
+        </ul>
+        </section>
+
+  <script>
+  document.querySelectorAll('.gallery .item').forEach(item=>{
+    item.addEventListener('click', ()=>{
+      const customizer = document.getElementById('customizer');
+      const preview = document.getElementById('preview');
+      const title = document.getElementById('customizer-title');
+
+ 
+      customizer.style.display='block';
+
+      title.textContent = 'Customize ' + (item.dataset.name || 'Outfit');
+
+      preview.src = item.dataset.img;
+
+      window.scrollTo({ top: customizer.offsetTop, behavior:'smooth' });
+    });
+    });
+
+     const COLORS = ['#000000','#FF0000','#00FF00','#0000FF','#FFFF00','#FF00FF','#00FFFF','#888888','#FFFFFF'];
+     const colorGrid = document.getElementById('colorGrid');
+     let selectedColor = '#000000';
+     COLORS.forEach(c=>{
+       const btn=document.createElement('button');
+       btn.className='color-swatch';
+       btn.style.background=c;
+       btn.addEventListener('click',()=>setColor(c,btn));
+       colorGrid.appendChild(btn);
+     });
+    function setColor(c,btn){
+     selectedColor=c;
+     document.querySelectorAll('.color-swatch').forEach(s=>s.removeAttribute('aria-selected'));
+     btn.setAttribute('aria-selected','true');
+     document.getElementById('preview').style.border = `8px solid ${c}`; // simple overlay effect
+    }
+    const sizeSelect=document.getElementById('sizeSelect');
+    const sizeHint=document.getElementById('sizeHint');
+    sizeSelect.addEventListener('change',()=>{ sizeHint.textContent="Selected: "+sizeSelect.value; });
+
+    document.getElementById('saveConfig').addEventListener('click',()=>{
+    const payload={
+      pattern: document.getElementById('patternSelect').value,
+      color: selectedColor,
+      size: sizeSelect.value
+    };
+    alert("Saved:\n"+JSON.stringify(payload,null,2));
+    });
+    </script> 
+</body>
+</html>

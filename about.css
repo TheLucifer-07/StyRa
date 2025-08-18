@@ -1,0 +1,43 @@
+
+.about, .contact {
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color:white;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+.about{
+    background-image: url("../images/about.jpeg");
+}
+.contact{
+    background-image: url("../images/welcome.jpg");
+}
+
+
+.about h2, .contact h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ffffff; /* orange accent */
+}
+
+.about ul, .contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about li, .contact li {
+  margin: 8px 0;
+  font-size: 1.05rem;
+  color:white;
+
+}
+.contact a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.contact a:hover {
+  text-decoration: underline;
+}
