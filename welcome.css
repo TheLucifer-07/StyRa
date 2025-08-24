@@ -1,78 +1,76 @@
-
-header{
-    font-size: 30px;
-    font-family:  Helvetica;
-    align-items: center;
-    justify-content: center;
-    flex:1;
-    display:flex;
-    background-color: #fff;
-    height: 40px;
-    padding: 10px;
+body{
+     background-color: #E8F5E9;
 }
-header h1{
-    font-size: 30px;
-    font-family:  Helvetica;
-    align-items: center;
-    justify-content: center;
-    flex:1;
-    display:flex;
-
+.headerclass {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: rgb(221, 239, 255);
+  color: white;
+  position: relative;
+  z-index: 1000;
 }
-header nav{
-    padding:10px;
-    margin:15px ;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-    flex:1;
-    display:flex;
-    padding-left: 100px;
+.headerclass nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
-header  nav ol{
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-    flex:1;
-    display:flex;
-    padding:0px;
-    padding-left: 100px;
+.headerclass h1 {
+  font-size: 24px;
+  margin: 0;
 }
-header  nav ol li{
-    font-size: 20px;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-    flex:1;
-    display:flex;
-    padding:10px;
-    cursor: pointer;
-    
-
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-header a{
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
+.menu-btn div {
+  height: 4px;
+  background-color: white;
+  border-radius: 2px;
+}
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  background: rgb(136, 165, 190) ;
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 1000;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 0;
+  display: block;
+}
+.menu a:hover {
+  background: #485769;
+  border-radius: 4px;
+  padding-left: 5px;
+}
+.menu.show {
+  display: flex;
 }
 .div1{
-    color: white;
-    background-image: url("../images/welcome.jpg");
-    background-size: cover;       
-    background-position: center;  
-    background-repeat: no-repeat; 
+    background-color: #E8F5E9;
     text-align: center;
     align-items: center;
     justify-content: center;
-    display: flex;               
-    flex-direction: column;       
-    width: 100%;
-    min-height: 90vh;
-    position: relative;
-    border-radius: 25px;
+    width: 100vw;                
+    min-height: 80vh; 
+   
 
 }
-.div1 h2{
+.div1 h1{
     font-size: 50px;
     font-family: Helvetica;
     text-align: center;
@@ -80,91 +78,92 @@ header a{
     justify-content: center;
     flex:1;
     display:flex;
-    padding: 0px;
     padding-left:50px;
-    padding-top: 10%;
-    color:rgb(255, 255, 255);
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    padding-top: 15%;
+    
 }
 .div1 p{
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 15px;
     font-family: Helvetica;
     text-align: center;
     align-items: center;
     justify-content: center;
     flex:1;
     display:flex;
-    color:rgb(255, 255, 255);
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+.div1 h1,
+.div1 p {
+    display: block; 
+    padding-left: 0;
+    padding-top: 15%;
+}
+.btn1{
+    padding: 40px;
 }
 .btn{
-   font-size: 18px;
+    font-size: 15px;
     font-family: Helvetica;
     text-align: center;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px 20px;
+    margin-top: 60px;
+    padding: 12px 30px;
     border-radius: 25px;
     border: none;
     background: #ddd;
     cursor: pointer;
-    background-color: whitesmoke;
+    background-color: #C8E6C9;
     text-decoration: none;
     color: black; 
-    transition: none;
+    
 }
 .btn :hover{
      background-color: #fff;
 }
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
+    .headerclass {
+        flex-direction: row;
         padding: 10px;
         text-align: center;
     }
-    header h1 {
+    .headerclass h3 {
         font-size: 24px;
         margin-bottom: 10px;
-        min-height: 40vh;
     }
-    header nav{
+    .headerclass nav{
         padding:20px;
         padding:10px;
         margin:15px ;
         list-style: none;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         flex:1;
         display:flex;
-        flex-direction: column;
+        flex-direction: row;
         
     }
-    header nav ol {
-        flex-direction: column;
-        padding-left: 0;
-        gap: 8px;
+    .menu-btn {
+      display: flex;  
     }
-    header nav ol li {
-        flex: none;
-        font-size: 16px;
-        padding: 8px 0;
+    .menu {
+      display: none;  
     }
+    .menu.show {
+      display: flex; 
+    } 
     .div1 {
         min-height: 60vh;
         padding: 20px;
     }
-    .div1 h2 {
-        font-size: 36px;
+    .div1 h1 {
+        font-size: 28px;
         padding: 0;
     }
     .div1 p {
-        font-size: 16px;
-        padding: 0 15px;
+        font-size: 14px;
+        padding: 0 10px;
     }
     .btn {
-        margin-top: 20px;
+        margin-top: 30px;
         padding: 10px 20px;
         font-size: 14px;
     }
